@@ -21,7 +21,7 @@ class ImageCreate(ImageBase):
 
 class Image(ImageBase):
     id: int
-    product_id: int
+    product_id: Optional[int] = None
 
     class Config:
         from_attributes = True

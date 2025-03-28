@@ -32,9 +32,13 @@ const submitForm = async () => {
 
     if (product.value.image) {
         formData.append('image', product.value.image);
-    } else if (props.productId) {
-        formData.append('image', product.value.imageUrl);
+    } else if (props.productId && product.value.imageUrl) {
+        // Para actualización, si no se carga una nueva imagen, usa la imageUrl existente
+        formData.append('imageUrl', product.value.imageUrl);
     }
+
+    // Verifica el FormData antes de enviar
+    console.log('FormData:', formData.get('image'));
 
     try {
         if (props.productId) {
@@ -47,9 +51,19 @@ const submitForm = async () => {
         emit('close-form');
     } catch (error) {
         console.error('Error submitting form:', error);
+        // Manejo de errores más detallado
+        if (error.response) {
+            console.error('Response data:', error.response.data);
+            console.error('Response status:', error.response.status);
+            console.error('Response headers:', error.response.headers);
+        } else if (error.request) {
+            console.error('Request:', error.request);
+        } else {
+            console.error('Error message:', error.message);
+        }
     }
 
-    if (product.value.image && props.productId) {
+    if (props.productId && product.value.image) {
         const { data } = await getProduct(props.productId);
         product.value.imageUrl = data.images && data.images.length > 0 ? 'http://127.0.0.1:8000/' + data.images[0].image_url : '';
     }
