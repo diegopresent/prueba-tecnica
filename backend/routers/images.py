@@ -13,9 +13,11 @@ router = APIRouter()
 IMAGES_DIR = "imagenes/"
 ABS_IMAGES_DIR = os.path.abspath(IMAGES_DIR)
 
+# si el directorio no existe, lo crea
 if not os.path.exists(ABS_IMAGES_DIR):
     os.makedirs(ABS_IMAGES_DIR)
 
+# Ruta para crear una imagen
 @router.post("/images/", response_model=schemas.Image)
 async def create_image(
     image: UploadFile = File(...),

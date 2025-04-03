@@ -1,0 +1,39 @@
+# Entorno virtual
+venv/
+
+# Archivos generados por Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+.mypy_cache/
+
+# Archivos de IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+
+# Archivos de registro
+*.log
+*.tmp
+
+# Archivos de base de datos local
+*.sqlite
+*.sql
+
+# Archivos de entorno
+.env
+
+# Archivos de macOS
+.DS_Store
+
+# Node.js
+node_modules/

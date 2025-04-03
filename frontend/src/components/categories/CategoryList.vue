@@ -32,7 +32,8 @@ onMounted(fetchCategories);
     <div class="category-list">
         <h2>Categories</h2>
         <button class="add-category-btn" @click="showForm()">Add Category</button>
-        <CategoryForm v-if="showCategoryForm" @category-created="fetchCategories" @close-form="showCategoryForm = false" />
+        <CategoryForm v-if="showCategoryForm" @category-created="fetchCategories"
+            @close-form="showCategoryForm = false" />
         <div class="category-grid">
             <div v-for="category in categories" :key="category.id" class="category-card">
                 <h3>{{ category.name }}</h3>

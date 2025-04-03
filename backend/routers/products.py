@@ -88,7 +88,7 @@ async def update_product(
     if image:
         image_path = os.path.join(IMAGES_DIR, image.filename)
         with open(image_path, "wb") as buffer:
-            shutil.copyfileobj(image.file, buffer)
+            shutil.copyfileobj(image.file, buffer) 
 
         # db_image = db.execute(select(models.Image).filter(models.Image.product_id == product_id)).scalars().first()
         # if db_image:

@@ -6,10 +6,14 @@ const api = axios.create({
     baseURL: API_URL,
 });
 
-export const getProducts = () => api.get('/products/');
-export const getProduct = (id) => api.get(`/products/${id}`);
-export const createProduct = (productData) => api.post('/products/', productData, { headers: { 'Content-Type': 'multipart/form-data' } });
-export const updateProduct = (id, productData) => api.patch(`/products/${id}`, productData, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const getProducts = () => 
+    api.get('/products/');
+export const getProduct = (id) => 
+    api.get(`/products/${id}`);
+export const createProduct = (productData) => 
+    api.post('/products/', productData, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const updateProduct = (id, productData) => 
+    api.patch(`/products/${id}`, productData, { headers: { 'Content-Type': 'multipart/form-data' } });
 export const deleteProduct = (id) => api.delete(`/products/${id}`);
 
 export const getCategories = () => api.get('/categories/');
